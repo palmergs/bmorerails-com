@@ -14,13 +14,16 @@
       <ul class="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
         <% sponsors.each do |sponsor| %>
           <li class="<%= "sm:col-span-2 lg:col-span-3" if sponsor.partner? %>">
-            <%= tag.div class: "flex h-full flex-col justify-between gap-4 rounded-xl border border-marble-300 bg-white p-6 shadow-sm transition hover:border-harbor-300 hover:shadow-md" do %>
+            <div class="flex h-full flex-col justify-between gap-4 rounded-xl border border-marble-300 bg-white p-6 shadow-sm transition hover:border-harbor-300 hover:shadow-md">
               <div>
                 <div class="flex items-start justify-between gap-4">
                   <% if sponsor.logo? %>
+                    <%# Capped on both axes so wordmarks of different aspect
+                        ratios land at a consistent visual weight. %>
                     <%= image_tag "sponsors/#{sponsor.logo}",
                           alt: sponsor.name,
-                          class: "h-10 w-auto max-w-[12rem] object-contain object-left sm:h-12" %>
+                          loading: "lazy",
+                          class: "h-10 w-auto max-w-[13rem] object-contain object-left sm:h-11" %>
                   <% else %>
                     <%# No logo on file yet: a clean wordmark, never a broken image. %>
                     <span class="font-display text-xl leading-tight font-semibold text-harbor-900 sm:text-2xl">
@@ -50,7 +53,7 @@
                   <span aria-hidden="true">&rarr;</span>
                 <% end %>
               <% end %>
-            <% end %>
+            </div>
           </li>
         <% end %>
       </ul>

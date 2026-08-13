@@ -17,6 +17,16 @@ RSpec.describe "Pages", type: :request do
       expect(response.body).to include(Site::LUMA_URL)
     end
 
+    it "renders every sponsor currently in the content file" do
+      get root_path
+
+      expect(Sponsor.all).to be_present
+      Sponsor.all.each do |sponsor|
+        expect(response.body).to include(ERB::Util.html_escape(sponsor.name))
+        expect(response.body).to match(/sponsors\/#{sponsor.logo.split('.').first}/) if sponsor.logo?
+      end
+    end
+
     it "links to the code of conduct" do
       get root_path
 

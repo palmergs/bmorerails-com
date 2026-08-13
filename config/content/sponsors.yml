@@ -1,32 +1,32 @@
-# ⚠️  PLACEHOLDER DATA — replace before launch.
+# ⚠️  CARRIED OVER FROM THE OLD SITE — NOT YET CONFIRMED.
 #
-# These are invented companies used to design the sponsors section. Do not
-# deploy them: showing a sponsor who has not agreed to sponsor is a real
-# problem, not a cosmetic one. Delete this file's contents and the section
-# renders its empty state, which is designed and fine to ship.
+# These three are the sponsors that bmoreonrails.org displayed on its
+# homepage, with their original logos. That list was last edited in
+# January 2018, so treat every entry as unverified: confirm with each
+# company that they still sponsor us, and check that the logo and URL are
+# still their current branding, before this goes live.
+#
+# Deleting an entry is safe. Deleting all of them is also safe — the
+# section falls back to just the "become a sponsor" call to action.
 #
 # Fields: name (required), url, tier (partner | supporter | friend), blurb,
 #         logo (filename in app/assets/images/sponsors/, optional)
+#
+# Tiers drive display order and card size. The old site presented these
+# three as equals, so they are all listed at the same tier rather than
+# inventing a hierarchy nobody agreed to.
 
-- name: "Charm City Software"
-  url: "https://example.com"
-  tier: partner
-  blurb: "Hosts our monthly meetup and keeps the pizza coming."
-
-- name: "Patapsco Digital"
-  url: "https://example.com"
+- name: "Allovue"
+  url: "https://allovue.com"
   tier: supporter
-  blurb: "Rails consultancy on the harbor."
+  logo: "allovue.png"
 
-- name: "Formstone Labs"
-  url: "https://example.com"
+- name: "SmartLogic"
+  url: "https://smartlogic.io"
   tier: supporter
-  blurb: "Product engineering, Baltimore born."
+  logo: "smartlogic.png"
 
-- name: "Mount Vernon Data"
-  url: "https://example.com"
-  tier: friend
-
-- name: "Hampden Interactive"
-  url: "https://example.com"
-  tier: friend
+- name: "Fearless"
+  url: "https://fearless.tech"
+  tier: supporter
+  logo: "fearless.png"
