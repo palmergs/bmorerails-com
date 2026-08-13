@@ -1,0 +1,16 @@
+# Fixture for Event specs. Deliberately separate from config/content/events.yml
+# so that editing real site content can never break the suite.
+- title: "Past Meetup"
+  starts_at: "2026-01-14 18:30"
+
+- title: "Third Up"
+  starts_at: "2026-11-11 18:30"
+
+- title: "First Up"
+  starts_at: "2026-09-09 18:30"
+  ends_at: "2026-09-09 20:30"
+  venue: "Betamore"
+  neighborhood: "Federal Hill"
+
+- title: "Second Up"
+  starts_at: "2026-10-14 18:30"

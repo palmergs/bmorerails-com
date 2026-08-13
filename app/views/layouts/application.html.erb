@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= content_for(:title) || "Bmoreonrails Com" %></title>
+    <title><%= page_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= page_description %>">
+    <meta name="theme-color" content="#0b232c">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Bmoreonrails Com">
+    <meta name="application-name" content="<%= Site::NAME %>">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <%# A meetup is shared by pasting a link into chat, so cards matter. %>
+    <%# TODO: add an og:image before launch — a 1200x630 card in public/. %>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<%= Site::NAME %>">
+    <meta property="og:title" content="<%= page_title %>">
+    <meta property="og:description" content="<%= page_description %>">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta name="twitter:card" content="summary_large_image">
 
     <%= yield :head %>
 
@@ -23,9 +34,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="bg-marble-50 font-sans text-harbor-900 antialiased">
+    <a href="#main"
+       class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-harbor-900 focus:px-4 focus:py-2 focus:text-marble-50 focus:outline-2 focus:outline-offset-2 focus:outline-gold-300">
+      Skip to main content
+    </a>
+
+    <%= render "shared/header" %>
+
+    <main id="main" tabindex="-1">
       <%= yield %>
     </main>
+
+    <%= render "shared/footer" %>
   </body>
 </html>

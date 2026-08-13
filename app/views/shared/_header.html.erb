@@ -1,0 +1,61 @@
+<% nav_links = [
+     [ "Events", root_path(anchor: "events") ],
+     [ "Sponsors", root_path(anchor: "sponsors") ],
+     [ "Code of Conduct", code_of_conduct_path ]
+   ] %>
+
+<header class="sticky top-0 z-40 border-b border-harbor-800/70 bg-harbor-950/95 backdrop-blur"
+        data-controller="mobile-menu"
+        data-action="keydown.esc->mobile-menu#close">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+    <%= link_to root_path, class: "group flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-300" do %>
+      <%= render "shared/ruby_mark", classes: "h-7 w-7 shrink-0" %>
+      <span class="font-display text-lg leading-none font-semibold tracking-tight text-marble-50 sm:text-xl">
+        Bmore <span class="text-gold-300">on Rails</span>
+      </span>
+    <% end %>
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Main">
+      <% nav_links.each do |label, path| %>
+        <%= link_to label, path,
+              class: "rounded-md px-3 py-2 text-sm font-medium text-harbor-100 transition hover:bg-harbor-800 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300" %>
+      <% end %>
+      <%= link_to "RSVP on Luma", Site::LUMA_URL,
+            class: "ml-2 rounded-md bg-gold-400 px-4 py-2 text-sm font-semibold text-harbor-950 transition hover:bg-gold-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-200",
+            target: "_blank", rel: "noopener" %>
+    </nav>
+
+    <button type="button"
+            class="inline-flex items-center justify-center rounded-md p-2 text-marble-50 transition hover:bg-harbor-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 md:hidden"
+            data-mobile-menu-target="button"
+            data-action="mobile-menu#toggle"
+            aria-expanded="false"
+            aria-controls="mobile-nav">
+      <span class="sr-only">Toggle navigation</span>
+      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-nav"
+       class="hidden border-t border-harbor-800/70 px-4 pb-4 md:hidden"
+       data-mobile-menu-target="panel"
+       aria-label="Main">
+    <ul class="flex flex-col gap-1 pt-2">
+      <% nav_links.each do |label, path| %>
+        <li>
+          <%= link_to label, path,
+                class: "block rounded-md px-3 py-3 text-base font-medium text-harbor-100 transition hover:bg-harbor-800 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300",
+                data: { action: "mobile-menu#close" } %>
+        </li>
+      <% end %>
+      <li class="pt-1">
+        <%= link_to "RSVP on Luma", Site::LUMA_URL,
+              class: "block rounded-md bg-gold-400 px-3 py-3 text-center text-base font-semibold text-harbor-950 transition hover:bg-gold-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-200",
+              target: "_blank", rel: "noopener",
+              data: { action: "mobile-menu#close" } %>
+      </li>
+    </ul>
+  </nav>
+</header>

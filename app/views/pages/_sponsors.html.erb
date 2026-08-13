@@ -1,0 +1,73 @@
+<section id="sponsors" class="border-y border-marble-200 bg-marble-100 py-16 sm:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="max-w-2xl">
+      <h2 class="font-display text-3xl font-bold text-harbor-900 sm:text-4xl">
+        Sponsors
+      </h2>
+      <p class="mt-2 text-base leading-relaxed text-harbor-700">
+        Bmore on Rails is free to attend because these folks cover the room,
+        the food, and the occasional projector adapter. We're grateful.
+      </p>
+    </div>
+
+    <% if sponsors.any? %>
+      <ul class="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
+        <% sponsors.each do |sponsor| %>
+          <li class="<%= "sm:col-span-2 lg:col-span-3" if sponsor.partner? %>">
+            <%= tag.div class: "flex h-full flex-col justify-between gap-4 rounded-xl border border-marble-300 bg-white p-6 shadow-sm transition hover:border-harbor-300 hover:shadow-md" do %>
+              <div>
+                <div class="flex items-start justify-between gap-4">
+                  <% if sponsor.logo? %>
+                    <%= image_tag "sponsors/#{sponsor.logo}",
+                          alt: sponsor.name,
+                          class: "h-10 w-auto max-w-[12rem] object-contain object-left sm:h-12" %>
+                  <% else %>
+                    <%# No logo on file yet: a clean wordmark, never a broken image. %>
+                    <span class="font-display text-xl leading-tight font-semibold text-harbor-900 sm:text-2xl">
+                      <%= sponsor.name %>
+                    </span>
+                  <% end %>
+
+                  <% if sponsor.partner? %>
+                    <span class="shrink-0 rounded-full bg-gold-100 px-3 py-1 text-xs font-semibold tracking-wide text-gold-600 uppercase">
+                      Partner
+                    </span>
+                  <% end %>
+                </div>
+
+                <% if sponsor.blurb.present? %>
+                  <p class="mt-3 text-sm leading-relaxed text-harbor-700">
+                    <%= sponsor.blurb %>
+                  </p>
+                <% end %>
+              </div>
+
+              <% if sponsor.url.present? %>
+                <%= link_to sponsor.url,
+                      class: "self-start rounded-sm text-sm font-semibold text-brick-700 underline decoration-brick-300 underline-offset-4 transition hover:text-brick-900 hover:decoration-brick-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brick-500",
+                      target: "_blank", rel: "noopener" do %>
+                  Visit <span class="sr-only"><%= sponsor.name %></span>
+                  <span aria-hidden="true">&rarr;</span>
+                <% end %>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="mt-8 flex flex-col gap-4 rounded-xl border border-dashed border-harbor-300 bg-harbor-900 p-6 sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+      <div>
+        <h3 class="font-display text-xl font-semibold text-marble-50 sm:text-2xl">
+          Want to sponsor a meetup?
+        </h3>
+        <p class="mt-2 max-w-xl text-base leading-relaxed text-harbor-100">
+          Space, food, or a few dollars toward the next one — all of it helps,
+          and all of it keeps the door open to everybody.
+        </p>
+      </div>
+      <%= link_to "Get in touch", "mailto:#{Site::CONTACT_EMAIL}",
+            class: "shrink-0 self-start rounded-lg bg-gold-400 px-5 py-3 text-sm font-semibold text-harbor-950 transition hover:bg-gold-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-200 sm:self-auto" %>
+    </div>
+  </div>
+</section>

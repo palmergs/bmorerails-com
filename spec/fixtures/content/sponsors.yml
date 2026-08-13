@@ -1,0 +1,12 @@
+# Fixture for Sponsor specs. Deliberately separate from
+# config/content/sponsors.yml so real sponsor edits never break the suite.
+- name: "A Friend"
+  tier: friend
+
+- name: "A Partner"
+  tier: partner
+  blurb: "Hosts the meetup."
+
+- name: "A Supporter"
+  tier: supporter
+  logo: "supporter.svg"

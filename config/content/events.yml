@@ -1,0 +1,39 @@
+# ⚠️  PLACEHOLDER DATA — replace before launch.
+#
+# These entries exist so the events section can be designed and reviewed while
+# the Luma integration is deferred. See app/models/event.rb for the seam where
+# https://luma.com/cja7x708 will eventually plug in.
+#
+# Fields: title (required), starts_at (required), ends_at, venue,
+#         neighborhood, summary, url
+# Times are Baltimore local (America/New_York).
+
+- title: "Rails 8 in Production: What We Learned"
+  starts_at: "2026-09-09 18:30"
+  ends_at: "2026-09-09 20:30"
+  venue: "Betamore"
+  neighborhood: "Federal Hill"
+  summary: >
+    A talk on running Solid Queue and Kamal for a year, followed by open
+    discussion. Pizza at 6:30, talk at 7:00.
+  url: "https://luma.com/cja7x708"
+
+- title: "Hack Night + Newcomer Table"
+  starts_at: "2026-10-14 18:30"
+  ends_at: "2026-10-14 21:00"
+  venue: "Impact Hub Baltimore"
+  neighborhood: "Station North"
+  summary: >
+    Bring whatever you're working on. We always staff a table for people who
+    are brand new to Ruby — no experience required, laptops optional.
+  url: "https://luma.com/cja7x708"
+
+- title: "Lightning Talks: Gems We Love"
+  starts_at: "2026-11-11 18:30"
+  ends_at: "2026-11-11 20:30"
+  venue: "Spark Baltimore"
+  neighborhood: "Harbor East"
+  summary: >
+    Five minutes, one gem, no slides required. Sign up on the night — first
+    time speakers get first pick.
+  url: "https://luma.com/cja7x708"

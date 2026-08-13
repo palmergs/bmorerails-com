@@ -101,7 +101,6 @@ GEM
     ed25519 (1.4.0)
     erb (6.0.7)
     erubi (1.13.1)
-    erubis (2.7.0)
     et-orbi (1.4.1)
       tzinfo
     factory_bot (6.6.0)
@@ -123,21 +122,6 @@ GEM
       raabro (~> 1.4)
     globalid (1.4.0)
       activesupport (>= 6.1)
-    haml (7.3.0)
-      prism (>= 1.1.0)
-      temple (>= 0.8.2)
-      thor
-      tilt
-    haml-rails (3.1.0)
-      actionpack (>= 5.1)
-      activesupport (>= 5.1)
-      haml (>= 4.0.6)
-      railties (>= 5.1)
-    html2haml (2.3.0)
-      erubis (~> 2.7.0)
-      haml (>= 4.0)
-      nokogiri (>= 1.6.0)
-      ruby_parser (~> 3.5)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
     image_processing (1.14.0)
@@ -332,11 +316,7 @@ GEM
     ruby-vips (2.3.0)
       ffi (~> 1.12)
       logger
-    ruby_parser (3.22.0)
-      racc (~> 1.5)
-      sexp_processor (~> 4.16)
     securerandom (0.4.1)
-    sexp_processor (4.17.5)
     solid_cable (4.0.2)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -378,13 +358,11 @@ GEM
     tailwindcss-ruby (4.3.3-arm64-darwin)
     tailwindcss-ruby (4.3.3-x86_64-linux-gnu)
     tailwindcss-ruby (4.3.3-x86_64-linux-musl)
-    temple (0.10.6)
     thor (1.5.0)
     thruster (0.1.25)
     thruster (0.1.25-aarch64-linux)
     thruster (0.1.25-arm64-darwin)
     thruster (0.1.25-x86_64-linux)
-    tilt (2.8.0)
     timeout (0.6.1)
     tsort (0.2.0)
     turbo-rails (2.0.23)
@@ -425,8 +403,6 @@ DEPENDENCIES
   debug
   factory_bot_rails
   faker
-  haml-rails
-  html2haml
   image_processing (~> 1.2)
   importmap-rails
   kamal
@@ -479,7 +455,6 @@ CHECKSUMS
   ed25519 (1.4.0) sha256=16e97f5198689a154247169f3453ef4cfd3f7a47481fde0ae33206cdfdcac506
   erb (6.0.7) sha256=c5ca6dc25b0ef974a44dc8f59fe847577122483b1968a38dec305c60bf91ee92
   erubi (1.13.1) sha256=a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9
-  erubis (2.7.0) sha256=63653f5174a7997f6f1d6f465fbe1494dcc4bdab1fb8e635f6216989fb1148ba
   et-orbi (1.4.1) sha256=007e2685b1d873415a7587ef889336c6dcdf8a47fc9c9a63547582b21660a11b
   factory_bot (6.6.0) sha256=1fc1b3b5620ec980a6a27aec1b6ec8c250ca82962e970e8a40f93e8d388d4b89
   factory_bot_rails (6.5.1) sha256=d3cc4851eae4dea8a665ec4a4516895045e710554d2b5ac9e68b94d351bc6d68
@@ -493,9 +468,6 @@ CHECKSUMS
   ffi (1.17.4-x86_64-linux-musl) sha256=3fdf9888483de005f8ef8d1cf2d3b20d86626af206cbf780f6a6a12439a9c49e
   fugit (1.13.0) sha256=a4f093fce740da52f216740a5041e2a594ea763cdb89e8b2754ca4399634ab18
   globalid (1.4.0) sha256=037f12fbf1d9d7a014d501c2d5c77356fd4ddd96d7a7991d6700bba96706f427
-  haml (7.3.0) sha256=4383cb90bb0b525d4025dcb9721fec085edda1c43525043fc327c80127f6cf37
-  haml-rails (3.1.0) sha256=4366474d973e4b9d5326cb216f2073150cfeff4c2a3c07fadb49a490ffdf610b
-  html2haml (2.3.0) sha256=b587eaf532609642fc3b5c2b35861e8c9e15e72e0355b93bbcfee1e3ae088127
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   image_processing (1.14.0) sha256=754cc169c9c262980889bec6bfd325ed1dafad34f85242b5a07b60af004742fb
   importmap-rails (2.2.3) sha256=7101be2a4dc97cf1558fb8f573a718404c5f6bcfe94f304bf1f39e444feeb16a
@@ -564,9 +536,7 @@ CHECKSUMS
   rubocop-rails-omakase (1.1.0) sha256=2af73ac8ee5852de2919abbd2618af9c15c19b512c4cfc1f9a5d3b6ef009109d
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   ruby-vips (2.3.0) sha256=e685ec02c13969912debbd98019e50492e12989282da5f37d05f5471442f5374
-  ruby_parser (3.22.0) sha256=1eb4937cd9eb220aa2d194e352a24dba90aef00751e24c8dfffdb14000f15d23
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
-  sexp_processor (4.17.5) sha256=ae2b48ba98353d5d465ce8759836b7a05f2e12c5879fcd14d7815b026de32f0e
   solid_cable (4.0.2) sha256=084636a67679ad00d23088b33c84047e614bcf41ee559db24b414d83cdc42d03
   solid_cache (1.0.10) sha256=bc05a2fb3ac78a6f43cbb5946679cf9db67dd30d22939ededc385cb93e120d41
   solid_queue (1.6.0) sha256=b5fc3bb34162e09d8f960df6400d0f9304dc80fe66c2cfface31c32b228de6a1
@@ -586,13 +556,11 @@ CHECKSUMS
   tailwindcss-ruby (4.3.3-arm64-darwin) sha256=776c51fc734aac64bde0c253eadd2ed2e610b2ba0d8e760501fe7cbec55fd6cf
   tailwindcss-ruby (4.3.3-x86_64-linux-gnu) sha256=2337017ff8b02698480eae1e9637cf01faa0e4824db89d067a13c5a5ee38c9b2
   tailwindcss-ruby (4.3.3-x86_64-linux-musl) sha256=27d478c417bcf73828e5b544744c5bdfd5b5cb54f1a266fc4f185281c32efe6c
-  temple (0.10.6) sha256=0f2ed8a885a81ef5b13b1d99a02948e36da34f2212390f0a0228bfd0412c400a
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   thruster (0.1.25) sha256=d97d704e91fa37d5858bc238dea6186f7310b633abfeea9f2ba814f252203716
   thruster (0.1.25-aarch64-linux) sha256=495265b11fc3c3596ae0d70ed902b60db82dafb2a5b47a2c527d3176ee3cf311
   thruster (0.1.25-arm64-darwin) sha256=20338360cce4035e787135ae154a10663f3d3d61b15bfa72df347fe9d982de57
   thruster (0.1.25-x86_64-linux) sha256=e5586003b34dc2f4200f8412101e906621e276bb294d41d1b63a3c41e348503d
-  tilt (2.8.0) sha256=ba472eb2716fe1e04112d6d219a9dae938ec09a6a1e2ad3ecc7922e79bde3721
   timeout (0.6.1) sha256=78f57368a7e7bbadec56971f78a3f5ecbcfb59b7fcbb0a3ed6ddc08a5094accb
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   turbo-rails (2.0.23) sha256=ee0d90733aafff056cf51ff11e803d65e43cae258cc55f6492020ec1f9f9315f

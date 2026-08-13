@@ -1,0 +1,32 @@
+# ⚠️  PLACEHOLDER DATA — replace before launch.
+#
+# These are invented companies used to design the sponsors section. Do not
+# deploy them: showing a sponsor who has not agreed to sponsor is a real
+# problem, not a cosmetic one. Delete this file's contents and the section
+# renders its empty state, which is designed and fine to ship.
+#
+# Fields: name (required), url, tier (partner | supporter | friend), blurb,
+#         logo (filename in app/assets/images/sponsors/, optional)
+
+- name: "Charm City Software"
+  url: "https://example.com"
+  tier: partner
+  blurb: "Hosts our monthly meetup and keeps the pizza coming."
+
+- name: "Patapsco Digital"
+  url: "https://example.com"
+  tier: supporter
+  blurb: "Rails consultancy on the harbor."
+
+- name: "Formstone Labs"
+  url: "https://example.com"
+  tier: supporter
+  blurb: "Product engineering, Baltimore born."
+
+- name: "Mount Vernon Data"
+  url: "https://example.com"
+  tier: friend
+
+- name: "Hampden Interactive"
+  url: "https://example.com"
+  tier: friend

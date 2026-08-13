@@ -1,0 +1,155 @@
+<% content_for :title, "Code of Conduct" %>
+<% content_for :description, "The standards everyone at a Bmore on Rails event agrees to, and how to report a problem." %>
+
+<%#
+  DRAFT — this text is adapted from widely used community codes of conduct
+  (the Citizen Code of Conduct and the Berlin Code of Conduct lineage) and has
+  not yet been ratified by the organizers. Two things must be settled before
+  launch: the real reporting contacts in app/models/site.rb, and the names of
+  the people who make enforcement decisions.
+%>
+
+<article class="bg-white">
+  <header class="bg-harbor-900 px-4 py-12 sm:px-6 sm:py-16">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="font-display text-4xl font-bold text-marble-50 sm:text-5xl">
+        Code of Conduct
+      </h1>
+      <p class="mt-4 text-lg leading-relaxed text-harbor-100">
+        Bmore on Rails is meant to be one of the friendlier rooms you can walk
+        into. This is what we expect from each other, and what happens when
+        someone falls short.
+      </p>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+    <div class="flex flex-col gap-10">
+      <section>
+        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
+          Who this applies to
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          Everyone at a Bmore on Rails event: attendees, speakers, sponsors,
+          organizers, and volunteers. It covers our in-person meetups, our
+          online spaces, and any venue or after-event gathering where we are
+          together as this group.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
+          What we expect
+        </h2>
+        <ul class="mt-3 flex flex-col gap-3">
+          <% [
+               ["Be welcoming.", "Assume the person asking a basic question belongs here, because they do. Most of us were that person recently."],
+               ["Be considerate.", "People come with different backgrounds, experience levels, jobs, and reasons for being in the room. Talk to them accordingly."],
+               ["Be respectful in disagreement.", "Technical arguments are welcome. Contempt, condescension, and point-scoring are not."],
+               ["Take responsibility.", "If you hurt someone, listen, apologize plainly, and correct it. Intent doesn't erase impact."],
+               ["Look after the space.", "Follow the rules of whatever venue is hosting us, and leave it better than you found it."]
+             ].each do |title, body| %>
+            <li class="flex gap-3">
+              <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold-400" aria-hidden="true"></span>
+              <p class="text-base leading-relaxed text-harbor-800">
+                <strong class="font-semibold text-harbor-900"><%= title %></strong>
+                <%= body %>
+              </p>
+            </li>
+          <% end %>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
+          What is not acceptable
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          The following behavior is unacceptable at any Bmore on Rails event or
+          in any of our spaces:
+        </p>
+        <ul class="mt-3 flex flex-col gap-2.5">
+          <% [
+               "Harassment, intimidation, or discrimination based on gender, gender identity or expression, sexual orientation, disability, neurotype, physical appearance, body size, race, ethnicity, national origin, age, religion, or experience level.",
+               "Unwelcome sexual attention, sexual imagery, or sexual language in talks, slides, or conversation.",
+               "Deliberate misgendering or use of a name someone no longer goes by.",
+               "Threats or incitement of violence, and encouraging any of the above.",
+               "Stalking, following, or unwanted photography and recording.",
+               "Sustained disruption of talks, discussions, or other events.",
+               "Publishing someone's private information without their explicit permission.",
+               "Retaliation against anyone who reports a violation of this code."
+             ].each do |item| %>
+            <li class="flex gap-3">
+              <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brick-500" aria-hidden="true"></span>
+              <p class="text-base leading-relaxed text-harbor-800"><%= item %></p>
+            </li>
+          <% end %>
+        </ul>
+      </section>
+
+      <section class="rounded-xl border-2 border-brick-200 bg-brick-50 p-6 sm:p-8">
+        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
+          Reporting a problem
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          If you experience or witness something that breaks this code — or
+          anything else that makes you uncomfortable — tell an organizer. At an
+          event, organizers will introduce themselves at the start of the night
+          and are the people to find. You can also write to us:
+        </p>
+        <p class="mt-4">
+          <%= link_to Site::CONDUCT_EMAIL, "mailto:#{Site::CONDUCT_EMAIL}",
+                class: "rounded-sm font-display text-lg font-semibold break-all text-brick-700 underline decoration-brick-300 underline-offset-4 transition hover:text-brick-900 hover:decoration-brick-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brick-500 sm:text-xl" %>
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-harbor-800">
+          Reports are handled confidentially. We will not share your name with
+          the person you're reporting without your agreement, and we will not
+          ask you to repeat the story to a room full of people. You are welcome
+          to bring someone with you when you talk to us.
+        </p>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          If you need help contacting venue security or local authorities, or a
+          safe way to get home, ask an organizer and we will arrange it.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
+          What happens next
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          Organizers will decide on a response based on what happened. Depending
+          on severity, that may be a private conversation, a warning, being asked
+          to leave an event, or being barred from future events. Organizers may
+          act immediately to stop ongoing harm and sort out the details after.
+        </p>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          Organizers are held to this code too. A report about an organizer goes
+          to the other organizers, and that person takes no part in deciding it.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
+          A note on scope
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          We're a volunteer meetup, not a court. We can control who is welcome in
+          our room and our spaces, and we will use that. We can't adjudicate
+          things that happen entirely outside the group, though we will take
+          seriously any credible concern about someone's safety at our events.
+        </p>
+      </section>
+
+      <footer class="border-t border-marble-200 pt-6">
+        <p class="text-sm leading-relaxed text-harbor-600">
+          Adapted from the Citizen Code of Conduct and the Berlin Code of
+          Conduct, both of which have made community spaces better for years.
+          Suggestions and corrections are welcome —
+          <%= link_to "open an issue", Site::GITHUB_URL, target: "_blank", rel: "noopener",
+                class: "rounded-sm underline decoration-harbor-300 underline-offset-4 transition hover:text-harbor-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-harbor-500" %>.
+        </p>
+      </footer>
+    </div>
+  </div>
+</article>

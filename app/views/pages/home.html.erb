@@ -1,0 +1,58 @@
+<%= render "pages/hero" %>
+<%= render "pages/events", events: @events %>
+<%= render "pages/sponsors", sponsors: @sponsors %>
+
+<section class="bg-white py-16 sm:py-24">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
+    <div>
+      <h2 class="font-display text-3xl font-bold text-harbor-900 sm:text-4xl">
+        Everyone is welcome here
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-harbor-800 sm:text-lg">
+        That isn't a slogan we put in the footer. Bmore on Rails is for career
+        switchers, bootcamp grads, students, hobbyists, and people who've been
+        writing Ruby for twenty years — often in the same room, on the same
+        night.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-harbor-800 sm:text-lg">
+        We hold ourselves to a code of conduct that we actually enforce. If
+        something goes wrong at one of our events, there is a real person to
+        tell and a real process behind it.
+      </p>
+      <%= link_to code_of_conduct_path,
+            class: "mt-6 inline-flex items-center justify-center rounded-lg bg-harbor-800 px-5 py-3 text-sm font-semibold text-marble-50 transition hover:bg-harbor-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-harbor-500" do %>
+        Read our code of conduct
+      <% end %>
+    </div>
+
+    <dl class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:gap-8">
+      <div class="border-l-4 border-brick-500 pl-5">
+        <dt class="font-display text-lg font-semibold text-harbor-900">
+          You don't need to know Ruby
+        </dt>
+        <dd class="mt-1.5 text-base leading-relaxed text-harbor-700">
+          Curious counts. Come, listen, ask the "obvious" question — someone
+          else in the room is wondering the same thing.
+        </dd>
+      </div>
+      <div class="border-l-4 border-gold-400 pl-5">
+        <dt class="font-display text-lg font-semibold text-harbor-900">
+          It's always free
+        </dt>
+        <dd class="mt-1.5 text-base leading-relaxed text-harbor-700">
+          No tickets, no membership. Our sponsors cover the space and the food
+          so cost is never the reason you stayed home.
+        </dd>
+      </div>
+      <div class="border-l-4 border-harbor-500 pl-5">
+        <dt class="font-display text-lg font-semibold text-harbor-900">
+          Come for one talk, stay for the people
+        </dt>
+        <dd class="mt-1.5 text-base leading-relaxed text-harbor-700">
+          Baltimore's tech scene is small enough that you'll recognize faces by
+          your second visit. That's the best part.
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>

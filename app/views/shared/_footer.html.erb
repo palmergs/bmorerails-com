@@ -1,0 +1,65 @@
+<footer class="bg-harbor-950 text-harbor-200">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-2.5">
+          <%= render "shared/ruby_mark", classes: "h-7 w-7 shrink-0" %>
+          <span class="font-display text-lg font-semibold tracking-tight text-marble-50">
+            Bmore <span class="text-gold-300">on Rails</span>
+          </span>
+        </div>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed">
+          <%= Site::TAGLINE %>. Monthly meetups, open to anyone who wants to
+          show up.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xs font-semibold tracking-widest text-marble-50 uppercase">
+          The meetup
+        </h2>
+        <ul class="mt-4 flex flex-col gap-3 text-sm">
+          <li>
+            <%= link_to "Upcoming events", root_path(anchor: "events"),
+                  class: "rounded-sm transition hover:text-gold-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300" %>
+          </li>
+          <li>
+            <%= link_to "Sponsors", root_path(anchor: "sponsors"),
+                  class: "rounded-sm transition hover:text-gold-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300" %>
+          </li>
+          <li>
+            <%= link_to "Code of conduct", code_of_conduct_path,
+                  class: "rounded-sm transition hover:text-gold-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300" %>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xs font-semibold tracking-widest text-marble-50 uppercase">
+          Find us
+        </h2>
+        <ul class="mt-4 flex flex-col gap-3 text-sm">
+          <li>
+            <%= link_to "Luma calendar", Site::LUMA_URL, target: "_blank", rel: "noopener",
+                  class: "rounded-sm transition hover:text-gold-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300" %>
+          </li>
+          <li>
+            <%= link_to "GitHub", Site::GITHUB_URL, target: "_blank", rel: "noopener",
+                  class: "rounded-sm transition hover:text-gold-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300" %>
+          </li>
+          <li>
+            <%= link_to Site::CONTACT_EMAIL, "mailto:#{Site::CONTACT_EMAIL}",
+                  class: "rounded-sm break-all transition hover:text-gold-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-2 border-t border-harbor-800 pt-6 text-sm sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; <%= Time.current.year %> <%= Site::NAME %></p>
+      <p class="text-harbor-300">
+        Made in Baltimore, with Ruby on Rails.
+      </p>
+    </div>
+  </div>
+</footer>

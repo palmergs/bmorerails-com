@@ -1,1 +1,81 @@
 @import "tailwindcss";
+
+/*
+  Bmore on Rails design tokens.
+
+  The palette is drawn from Baltimore: harbor water at dusk, rowhouse brick,
+  the marble stoops, and the black-and-gold of the city flag — plus ruby,
+  because we know why we're here.
+
+  Fonts are deliberately system stacks: no external requests, nothing to
+  break, and a maintainer can swap in a webfont by editing only --font-*.
+*/
+@theme {
+  /* Harbor — deep blue-green water. Primary dark surface. */
+  --color-harbor-50: #eef6f8;
+  --color-harbor-100: #d3e7ec;
+  --color-harbor-200: #a6ced9;
+  --color-harbor-300: #6faab9;
+  --color-harbor-400: #3f8095;
+  --color-harbor-500: #256477;
+  --color-harbor-600: #1a5062;
+  --color-harbor-700: #143f4e;
+  --color-harbor-800: #10313d;
+  --color-harbor-900: #0b232c;
+  --color-harbor-950: #06161c;
+
+  /* Brick — rowhouse facades. */
+  --color-brick-50: #fdf4f2;
+  --color-brick-100: #fbe4e0;
+  --color-brick-200: #f6c9c1;
+  --color-brick-300: #eda294;
+  --color-brick-400: #df7462;
+  --color-brick-500: #cc5340;
+  --color-brick-600: #ab3d2c;
+  --color-brick-700: #8c3124;
+  --color-brick-800: #742c22;
+  --color-brick-900: #622922;
+
+  /* Gold — Baltimore flag, marble stoops in afternoon light. */
+  --color-gold-100: #fdf0d0;
+  --color-gold-200: #fadfa0;
+  --color-gold-300: #f6c85f;
+  --color-gold-400: #f0b032;
+  --color-gold-500: #e09a1c;
+  --color-gold-600: #b87614;
+
+  /* Ruby — the language. Used sparingly, for emphasis. */
+  --color-ruby-400: #e0364a;
+  --color-ruby-500: #c2182c;
+  --color-ruby-600: #9b111e;
+
+  /* Marble — warm off-white page ground. */
+  --color-marble-50: #fbf9f5;
+  --color-marble-100: #f4f0e8;
+  --color-marble-200: #e7e0d3;
+  --color-marble-300: #d5cbb8;
+
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    ui-serif, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Anchored sections shouldn't hide under the sticky header. */
+@layer base {
+  :target {
+    scroll-margin-top: 5rem;
+  }
+}

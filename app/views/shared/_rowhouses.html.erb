@@ -1,0 +1,45 @@
+<%#
+  Decorative Baltimore rowhouse skyline: cornices, chimneys, a few lit windows,
+  and the marble stoops. Purely ornamental, so it is hidden from assistive tech.
+  Heights are hand-picked rather than random so the silhouette is stable across
+  renders and diffs stay readable.
+%>
+<% heights = [ 126, 104, 142, 116, 134, 108, 150, 122, 138, 112, 130, 118 ] %>
+
+<svg class="<%= local_assigns.fetch(:classes, "w-full") %>"
+     viewBox="0 0 1200 220"
+     preserveAspectRatio="xMidYMax slice"
+     aria-hidden="true"
+     focusable="false">
+  <% heights.each_with_index do |height, index| %>
+    <% x = index * 100 %>
+    <% top = 220 - height %>
+    <% facade = index.even? ? "#0b232c" : "#081c24" %>
+    <g>
+      <rect x="<%= x %>" y="<%= top %>" width="100" height="<%= height %>" fill="<%= facade %>" />
+
+      <%# Cornice: the heavy decorative band along the roofline. %>
+      <rect x="<%= x - 2 %>" y="<%= top %>" width="104" height="12" fill="#050f14" />
+
+      <% if (index % 3).zero? %>
+        <rect x="<%= x + 70 %>" y="<%= top - 16 %>" width="13" height="16" fill="#050f14" />
+      <% end %>
+
+      <%# Windows. A handful glow — someone is home, someone is deploying. %>
+      <% [ 20, 58 ].each_with_index do |offset, column| %>
+        <% rows = height > 120 ? [ top + 30, top + 74 ] : [ top + 30 ] %>
+        <% rows.each_with_index do |y, row| %>
+          <% lit = ((index + column * 2 + row * 3) % 4).zero? %>
+          <rect x="<%= x + offset %>" y="<%= y %>" width="22" height="26" rx="2"
+                fill="<%= lit ? "#f0b032" : "#123240" %>"
+                opacity="<%= lit ? 0.85 : 1 %>" />
+        <% end %>
+      <% end %>
+
+      <%# Door and the white marble stoop it opens onto. %>
+      <rect x="<%= x + 38 %>" y="182" width="24" height="32" rx="2" fill="#123240" />
+      <rect x="<%= x + 33 %>" y="214" width="34" height="6" fill="#e7e0d3" />
+      <rect x="<%= x + 30 %>" y="217" width="40" height="3" fill="#d5cbb8" />
+    </g>
+  <% end %>
+</svg>
