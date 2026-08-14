@@ -1,3 +1,68 @@
-<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="256" cy="256" r="256" fill="red"/>
+<!--
+  Bmore on Rails favicon — a raven perched on a cut ruby.
+
+  Same artwork as app/views/shared/_logo_mark.html.erb with ONE deliberate
+  difference: the halo is stroked at 3.4u here instead of 2.4u. At tab sizes
+  (16-32px) a 2.4u rim is roughly a third of a pixel and survives only as
+  antialiasing, which is not enough to keep a near-black bird off a dark tab
+  strip. The fatter rim is too heavy at hero sizes but correct at 16px, which
+  is the only size this file is ever drawn at. Keep the two in sync when the
+  silhouette changes; the stroke-width is the one value that should differ.
+
+  Construction notes live in the partial.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
+     role="img" aria-label="Bmore on Rails">
+  <defs>
+    <linearGradient id="plume" x1="0.1" y1="0" x2="0.6" y2="1">
+      <stop offset="0"    stop-color="#143f4e"/>
+      <stop offset="0.68" stop-color="#0b232c"/>
+      <stop offset="1"    stop-color="#06161c"/>
+    </linearGradient>
+    <path id="raven" d="M6 18.5
+             Q10.5 15.6 17.5 12.5
+             C19 5.5 27.5 4.2 31 13
+             L31.6 17
+             C37 18.2 41.4 20.3 45 23.5
+             L56.5 31.5 L54.5 35
+             Q48 32.2 41.5 30.5
+             C38 34.5 34 37.6 29 37.6
+             C24 37.6 20.5 35 18.5 31
+             C16.5 28.5 15.5 26 15.5 23.5
+             L11.8 25.2 L16.4 23.2 L12.6 21.4 L16.5 19.5 Z"/>
+    <path id="gem" d="M17.5 41 L46.5 41 L53 47 L32 60.5 L11 47 Z"/>
+  </defs>
+
+  <g transform="translate(32 32) scale(0.95) translate(-32 -32) translate(0.75,-0.5)">
+    <!-- halo, fattened for tab sizes -->
+    <g fill="none" stroke="#fbf9f5" stroke-width="3.4"
+       stroke-linejoin="round" stroke-linecap="round">
+      <use href="#gem"/>
+      <path d="M25.6 35.6 L24.6 40.6 M31 35.6 L30.6 40.6"/>
+      <use href="#raven"/>
+    </g>
+
+    <!-- the ruby -->
+    <g>
+      <path d="M17.5 41 L23.5 41 L20 47 L11 47 Z"   fill="#e0364a"/>
+      <path d="M23.5 41 L40.5 41 L43.5 47 L20 47 Z" fill="#c2182c"/>
+      <path d="M40.5 41 L46.5 41 L53 47 L43.5 47 Z" fill="#9b111e"/>
+      <path d="M11 47 L26 47 L32 60.5 Z"            fill="#e0364a"/>
+      <path d="M26 47 L38 47 L32 60.5 Z"            fill="#c2182c"/>
+      <path d="M38 47 L53 47 L32 60.5 Z"            fill="#9b111e"/>
+      <path d="M13.2 47 L19.4 47 L22.4 53.6 Z" fill="#fbf9f5" opacity="0.3"/>
+    </g>
+
+    <!-- legs and toes -->
+    <g stroke="#06161c" fill="none" stroke-linecap="butt">
+      <path d="M25.6 35.6 L24.6 40.6 M31 35.6 L30.6 40.6" stroke-width="3.4"/>
+      <path d="M21.4 40.2 L28.6 40.2 M27.4 40.2 L34.2 40.2" stroke-width="2.4"/>
+    </g>
+
+    <!-- the raven -->
+    <use href="#raven" fill="url(#plume)"/>
+
+    <!-- eye -->
+    <circle cx="21.5" cy="12.5" r="2.1" fill="#f6c85f"/>
+  </g>
 </svg>
