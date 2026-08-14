@@ -1,40 +1,31 @@
 # Meetup events.
 #
-# LUMA SEAM ------------------------------------------------------------------
-# Events currently come from config/content/events.yml, which someone edits by
-# hand. The plan is to read them from Luma's iCal feed, which is public,
-# unauthenticated, and officially supported:
+# A meetup event, however we happen to know about it.
 #
-#   https://api.lu.ma/ics/get?entity=calendar&id=cal-dlH2sPWE7XDrZUW
+# Where they come from, in order:
 #
-# Replace the body of .all with a call to a source object and keep this public
-# interface intact:
+#   1. Luma::Calendar        — the live iCal feed, cached
+#   2. config/content/events.yml  — the fallback, when Luma gives us nothing
+#   3. []                    — and the events section renders its empty state
 #
-#   def self.all
-#     Luma::Calendar.fetch   # cached, with a YAML fallback when Luma is down
-#   end
-#
-# Every view talks to Event and never to the source, so that swap stays local.
-# Whatever we build must degrade to the YAML file: an events section that
-# renders a spinner forever because Luma is unreachable is worse than one that
-# renders slightly stale truth.
-#
-# Three things the feed will need handling for:
-#   * DTSTART is UTC and shifts with DST — parse UTC, convert to the app zone,
-#     and never truncate the UTC date or events land on the wrong day.
-#   * SUMMARY carries a trailing " | B'more on Rails" that is redundant here.
-#   * LOCATION is a bare street address (sometimes a URL, when nobody set one)
-#     and DESCRIPTION is templated boilerplate — so venue, neighborhood, and
-#     real prose still come from a small hand-maintained overlay.
-# ----------------------------------------------------------------------------
+# Views only ever talk to this class, never to Luma, so the source can change
+# without touching a template. Nothing in that chain raises: an events section
+# that 500s because a third party is down is worse than one showing slightly
+# stale truth, which is worse than one that honestly says "nothing scheduled".
 class Event
   CONTENT_PATH = Rails.root.join("config/content/events.yml")
 
   attr_reader :title, :starts_at, :ends_at, :venue, :neighborhood, :summary, :url
 
+  # Luma first; the YAML file is what we fall back to when Luma has nothing to
+  # give us. Luma::Calendar never raises, so this never raises either.
   def self.all
-    entries = YAML.safe_load_file(CONTENT_PATH, permitted_classes: [ Date, Time ]) || []
+    entries = Luma::Calendar.events.presence || from_file
     entries.map { |attributes| new(**attributes.symbolize_keys) }
+  end
+
+  def self.from_file
+    YAML.safe_load_file(CONTENT_PATH, permitted_classes: [ Date, Time ]) || []
   rescue Errno::ENOENT
     []
   end
@@ -72,9 +63,12 @@ class Event
 
   private
 
+  # Strings arrive from YAML; Luma hands us real Time objects already.
   def parse_time(value)
-    return nil if value.blank?
-
-    Time.zone.parse(value.to_s)
+    case value
+    when nil, "" then nil
+    when String then Time.zone.parse(value)
+    else value.in_time_zone(Time.zone)
+    end
   end
 end

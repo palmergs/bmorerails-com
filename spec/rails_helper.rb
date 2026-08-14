@@ -68,6 +68,13 @@ RSpec.configure do |config|
   # `travel_to` for the date-sensitive parts of the events section.
   config.include ActiveSupport::Testing::TimeHelpers
 
+  # No spec may reach Luma over the network. Specs that care about the feed
+  # stub `download` with the recorded fixture; everything else exercises the
+  # fallback path, which is exactly what we want it to do.
+  config.before do
+    allow(Luma::Calendar).to receive(:download).and_raise(SocketError, "network disabled in specs")
+  end
+
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:

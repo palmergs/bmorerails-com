@@ -18,7 +18,8 @@ Most changes don't need code. Content lives in plain YAML and one Ruby file:
 
 | What | Where |
 | --- | --- |
-| Upcoming events | `config/content/events.yml` |
+| Event venue / neighborhood / write-ups | `config/content/event_details.yml` |
+| Fallback events, used when Luma is down | `config/content/events.yml` |
 | Sponsors | `config/content/sponsors.yml` |
 | Site name, links, contact addresses | `app/models/site.rb` |
 | Code of conduct text | `app/views/pages/code_of_conduct.html.erb` |
@@ -28,31 +29,45 @@ Sponsor logos go in `app/assets/images/sponsors/`, referenced by filename in
 `sponsors.yml`. A sponsor without a logo renders as a wordmark, which is a fine
 state to ship — no placeholder boxes.
 
-`events.yml` holds real data pulled from the Luma calendar. `sponsors.yml`
-holds the three sponsors carried over from the old bmoreonrails.org, whose
-list was last edited in 2018 — **confirm them before launch**. Both files
-carry a note at the top explaining their state.
+EcoMap is a confirmed current sponsor. The other three came from the old
+bmoreonrails.org, whose sponsor list was last edited in 2018 — **confirm them
+before launch**. `sponsors.yml` says so at the top.
 
 ## Events and Luma
 
-Events are hand-maintained in YAML today. The plan is to read them from Luma's
-iCal feed, which is public, unauthenticated, and officially supported:
+Events come from Luma's public iCal feed. It needs no API key and no paid
+plan — it is what Luma's own "Add iCal Subscription" button produces:
 
 ```
 https://api.lu.ma/ics/get?entity=calendar&id=cal-dlH2sPWE7XDrZUW
 ```
 
-`app/models/event.rb` documents the seam: replace the body of `Event.all` and
-leave the public interface alone. The feed gives us title, start, end, and the
-event URL; venue, neighborhood, and real prose stay in a small hand-maintained
-overlay, because the feed's `LOCATION` is a bare street address and its
-`DESCRIPTION` is templated boilerplate.
-
-Whatever we build has to fall back to the YAML file when Luma is unreachable —
-the events section already has a designed empty state for exactly that case.
-
-Note that `luma.com/bmore-on-rails` is the **calendar**; short codes like
+`luma.com/bmore-on-rails` is the **calendar**; short codes like
 `luma.com/cja7x708` are individual events.
+
+**Where each field comes from.** The feed gives us title, start, end, and the
+event URL. Venue, neighborhood, and real write-ups come from
+`config/content/event_details.yml`, because the feed's `LOCATION` is a bare
+street address (occasionally a URL) and its `DESCRIPTION` is templated
+boilerplate. The meetup is at the same place every month, so the `defaults`
+block in that file covers almost everything.
+
+**Failure behavior.** `Luma::Calendar` never raises. It falls back in three
+steps: fresh cache → last-good cache (30 days) → `config/content/events.yml` →
+empty, which renders the events section's designed empty state. A Luma outage
+can make the site stale; it cannot make it error.
+
+**Caching.** Six-hour freshness, refreshed out of band every four hours by
+`RefreshLumaCalendarJob` (see `config/recurring.yml`) so no visitor waits on
+Luma. In development, where `Rails.cache` is a null store by default, the
+calendar quietly uses a process-local memory store instead of refetching on
+every render.
+
+To see the live feed from a console:
+
+```sh
+bin/rails runner 'pp Luma::Calendar.refresh.first'
+```
 
 ## Tests
 

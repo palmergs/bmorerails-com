@@ -62,6 +62,20 @@ RSpec.describe Event do
   end
 
   describe ".all" do
+    it "prefers Luma over the file when Luma has events" do
+      allow(Luma::Calendar).to receive(:events)
+        .and_return([ { title: "From Luma", starts_at: "2026-09-10 19:00" } ])
+
+      expect(described_class.all.map(&:title)).to eq([ "From Luma" ])
+    end
+
+    it "falls back to the file when Luma has nothing" do
+      allow(Luma::Calendar).to receive(:events).and_return(nil)
+      stub_const("#{described_class}::CONTENT_PATH", Rails.root.join("spec/fixtures/content/events.yml"))
+
+      expect(described_class.all.map(&:title)).to include("First Up")
+    end
+
     it "returns an empty list rather than raising when the file is missing" do
       stub_const("#{described_class}::CONTENT_PATH", Rails.root.join("config/content/nope.yml"))
 

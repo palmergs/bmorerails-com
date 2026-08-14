@@ -19,11 +19,17 @@
                 <div class="flex items-start justify-between gap-4">
                   <% if sponsor.logo? %>
                     <%# Capped on both axes so wordmarks of different aspect
-                        ratios land at a consistent visual weight. %>
+                        ratios land at a consistent visual weight. Partners
+                        get the full-width card, so they get a bigger mark to
+                        match — otherwise the card reads as empty space. %>
                     <%= image_tag "sponsors/#{sponsor.logo}",
                           alt: sponsor.name,
                           loading: "lazy",
-                          class: "h-10 w-auto max-w-[13rem] object-contain object-left sm:h-11" %>
+                          class: class_names(
+                            "w-auto object-contain object-left",
+                            "h-10 max-w-[13rem] sm:h-11" => !sponsor.partner?,
+                            "h-12 max-w-[16rem] sm:h-16 sm:max-w-[20rem]" => sponsor.partner?
+                          ) %>
                   <% else %>
                     <%# No logo on file yet: a clean wordmark, never a broken image. %>
                     <span class="font-display text-xl leading-tight font-semibold text-harbor-900 sm:text-2xl">

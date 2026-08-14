@@ -1,0 +1,22 @@
+# Details that Luma's iCal feed cannot give us — see app/models/event_details.rb.
+#
+# `defaults` applies to every event. `events` overrides it per Luma short code
+# (the tail of the event URL, e.g. https://luma.com/cja7x708 -> cja7x708).
+#
+# Adding a `summary` here is how an event gets real prose on our site; Luma's
+# own DESCRIPTION field is boilerplate and never shown.
+#
+# ⚠️  The venue name is inferred from the street address in the feed
+# (2601 N Howard St). Confirm with an organizer how they want it named.
+
+defaults:
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+
+events:
+  cja7x708:
+    summary: >
+      A hack night unlike any other: we'll work in pairs on the same problem,
+      but all the work will be AI-driven. The goal isn't a finished thing by
+      the end of the night — it's to share and learn how to get the most out
+      of AI coding tools. Bring your own tokens.

@@ -1,0 +1,206 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Luma//B'more on Rails//EN
+X-WR-CALNAME:B'more on Rails
+X-WR-CALDESC:Luma Calendar
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20251009T230000Z
+DTEND:20251010T010000Z
+DTSTAMP:20260814T001014Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-aa4KpxmmhQe8v2L@events.lu.ma
+SUMMARY:We're Back! | B'more on Rails
+DESCRIPTION:Get up-to-date information at: https://luma.com/qxa34ig3\n\nAd
+ dress:\nCheck event page for more details.\n\nHosted by Ali Ibrahim
+LOCATION:https://luma.com/event/evt-aa4KpxmmhQe8v2L
+GEO:39.320691254225295;-76.61785358516258
+SEQUENCE:208829414
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251114T000000Z
+DTEND:20251114T020000Z
+DTSTAMP:20260814T001014Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-D46xSyRhxUBSCiG@events.lu.ma
+SUMMARY:Bring your computers, we're going pairing! | B'more on Rails
+DESCRIPTION:Get up-to-date information at: https://luma.com/yh4b1tqi\n\nAd
+ dress:\n2601 N Howard St\n➡️ The entrance is north of 26th St in a lit
+ tle alley between the building and a block of rowhomes. Someone will be at
+  the door to let you in until 7:00 PM.\n🚗 Street parking is available o
+ n the surrounding streets, but please take note of signs that restrict par
+ king. There are also two parking lots open to the public on 26th St.\n🚌
+  The bus stop at Howard and 26th St serves the 91 and 24 buses.\nBaltimore
+ , Maryland\nUnited States\n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829414
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251212T000000Z
+DTEND:20251212T020000Z
+DTSTAMP:20260814T001014Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-1YCQphj3k4gnkg3@events.lu.ma
+SUMMARY:B'more on Rails Presents: Your Talks!
+DESCRIPTION:Get up-to-date information at: https://luma.com/h5b3rmif\n\nAd
+ dress:\n2601 N Howard St\n➡️ The entrance is north of 26th St in a lit
+ tle alley between the building and a block of rowhomes. Someone will be at
+  the door to let you in until 7:00 PM.\n🚗 Street parking is available o
+ n the surrounding streets, but please take note of signs that restrict par
+ king. There are also two parking lots open to the public on 26th St.\n🚌
+  The bus stop at Howard and 26th St serves the 91 and 24 buses.\nBaltimore
+ , Maryland\nUnited States\n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829414
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260109T000000Z
+DTEND:20260109T020000Z
+DTSTAMP:20260814T001014Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-td0WOO8CNdEhTrX@events.lu.ma
+SUMMARY:New Year's Brainstorming | B'more on Rails
+DESCRIPTION:Get up-to-date information at: https://luma.com/sra2ye7s\n\nAd
+ dress:\n2601 N Howard St\n⚠️ The entrance is north of 26th St in a lit
+ tle alley between the building and a block of rowhomes. Someone will be at
+  the door to let you in until 7:00 PM.\nBaltimore, Maryland\nUnited States
+ \n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829414
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260213T000000Z
+DTEND:20260213T020000Z
+DTSTAMP:20260814T001014Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-214mnuUGAMPVHus@events.lu.ma
+SUMMARY:Open Hack Night | B'more on Rails
+DESCRIPTION:Get up-to-date information at: https://luma.com/wpbvozx2\n\nAd
+ dress:\n2601 N Howard St\n⚠️ The entrance is north of 26th St in a lit
+ tle alley between the building and a block of rowhomes. Someone will be at
+  the door to let you in until 7:00 PM.\nBaltimore, Maryland\nUnited States
+ \n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829414
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260312T230000Z
+DTEND:20260313T010000Z
+DTSTAMP:20260814T001015Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-9cU0GH6IrAB80r6@events.lu.ma
+SUMMARY:B'more on Rails Presents: Your Talks!
+DESCRIPTION:Get up-to-date information at: https://luma.com/yyrqgocr\n\nAd
+ dress:\n2601 N Howard St\n⚠️ The entrance is on Howard St between 26th
+  St and 27th St. You'll see a little pedestrian alley between a block of r
+ owhomes and the building. This will take you to glass doors that say Mille
+ r's Court. Someone will be at the door to let you in until 7:00 PM.\nBalti
+ more, Maryland\nUnited States\n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829415
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260409T230000Z
+DTEND:20260410T010000Z
+DTSTAMP:20260814T001015Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-5pRIo6luXf17d2F@events.lu.ma
+SUMMARY:B'more on Rails Hangout
+DESCRIPTION:Get up-to-date information at: https://luma.com/i6hu2grb\n\nAd
+ dress:\n2601 N Howard St\n⚠️ The entrance is on Howard St between 26th
+  St and 27th St. You'll see a little pedestrian alley between a block of r
+ owhomes and the building. This will take you to glass doors that say Mille
+ r's Court. Someone will be at the door to let you in until 7:00 PM.\nBalti
+ more, Maryland\nUnited States\n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829415
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260514T230000Z
+DTEND:20260515T010000Z
+DTSTAMP:20260814T001015Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-oyPa2m0TLMvOsAJ@events.lu.ma
+SUMMARY:B'more on Rails Goes Golfing 🏌️
+DESCRIPTION:Get up-to-date information at: https://luma.com/cbhwa7rj\n\nAd
+ dress:\n2601 N Howard St\n⚠️ The entrance is on Howard St between 26th
+  St and 27th St. You'll see a little pedestrian alley between a block of r
+ owhomes and the building. This will take you to glass doors that say Mille
+ r's Court. Someone will be at the door to let you in until 7:00 PM.\nBalti
+ more, MD\nUnited States\n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829415
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260611T230000Z
+DTEND:20260612T010000Z
+DTSTAMP:20260814T001015Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-dJya48tRzcqMrgc@events.lu.ma
+SUMMARY:B'more on Rails Presents: Your Talks!
+DESCRIPTION:Get up-to-date information at: https://luma.com/ulgefenu\n\nAd
+ dress:\n2601 N Howard St\n⚠️ The entrance is on Howard St between 26th
+  St and 27th St. You'll see a little pedestrian alley between a block of r
+ owhomes and the building. This will take you to glass doors that say Mille
+ r's Court. Someone will be at the door to let you in until 7:00 PM.\nBalti
+ more, MD\nUnited States\n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829415
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260709T230000Z
+DTEND:20260710T010000Z
+DTSTAMP:20260814T001015Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-BHP4ebaBtuvqDFd@events.lu.ma
+SUMMARY:B'more on Rails Summer Hangout
+DESCRIPTION:Get up-to-date information at: https://luma.com/up4d0qh6\n\nAd
+ dress:\n2601 N Howard St\n⚠️ The entrance is on Howard St between 26th
+  St and 27th St. You'll see a little pedestrian alley between a block of r
+ owhomes and the building. This will take you to glass doors that say Mille
+ r's Court. Someone will be at the door to let you in until 7:00 PM.\nBalti
+ more, MD\nUnited States\n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829415
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260813T230000Z
+DTEND:20260814T010000Z
+DTSTAMP:20260814T001015Z
+ORGANIZER;CN="Ali Ibrahim":MAILTO:calendar-invite@lu.ma
+UID:evt-GFa0bmMJLnruYvT@events.lu.ma
+SUMMARY:Bring Your Own Tokens Hack Night | B'more on Rails
+DESCRIPTION:Get up-to-date information at: https://luma.com/cja7x708\n\nAd
+ dress:\n2601 N Howard St\n⚠️ The entrance is on Howard St between 26th
+  St and 27th St. You'll see a little pedestrian alley between a block of r
+ owhomes and the building. This will take you to glass doors that say Mille
+ r's Court. Someone will be at the door to let you in until 7:00 PM.\nBalti
+ more, MD\nUnited States\n\nHosted by Ali Ibrahim
+LOCATION:2601 N Howard St, Baltimore, MD 21218, USA
+GEO:39.3193785;-76.619678
+SEQUENCE:208829415
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR

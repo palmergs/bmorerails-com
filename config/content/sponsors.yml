@@ -1,20 +1,31 @@
-# ⚠️  CARRIED OVER FROM THE OLD SITE — NOT YET CONFIRMED.
+# Fields: name (required), url, tier (partner | supporter | friend), blurb,
+#         logo (filename in app/assets/images/sponsors/, optional)
+#
+# Tiers drive display order and card size — a partner gets the full-width
+# card at the top of the section.
+#
+# Deleting an entry is safe. Deleting all of them is also safe: the section
+# falls back to just the "become a sponsor" call to action.
+
+# CONFIRMED CURRENT. EcoMap provides the space for the monthly meetup, per
+# the sponsor credit on the Luma event listings.
+- name: "EcoMap"
+  url: "https://www.ecomap.tech"
+  tier: partner
+  blurb: >
+    Provides the space for our monthly meetup at Miller's Court. EcoMap
+    builds ecosystem intelligence tools for economic developers.
+  logo: "ecomap.png"
+
+# ⚠️  EVERYTHING BELOW IS CARRIED OVER FROM THE OLD SITE — NOT YET CONFIRMED.
 #
 # These three are the sponsors that bmoreonrails.org displayed on its
 # homepage, with their original logos. That list was last edited in
 # January 2018, so treat every entry as unverified: confirm with each
 # company that they still sponsor us, and check that the logo and URL are
-# still their current branding, before this goes live.
-#
-# Deleting an entry is safe. Deleting all of them is also safe — the
-# section falls back to just the "become a sponsor" call to action.
-#
-# Fields: name (required), url, tier (partner | supporter | friend), blurb,
-#         logo (filename in app/assets/images/sponsors/, optional)
-#
-# Tiers drive display order and card size. The old site presented these
-# three as equals, so they are all listed at the same tier rather than
-# inventing a hierarchy nobody agreed to.
+# still their current branding, before this goes live. The old site
+# presented the three as equals, so they share a tier rather than
+# inheriting a hierarchy nobody agreed to.
 
 - name: "Allovue"
   url: "https://allovue.com"
