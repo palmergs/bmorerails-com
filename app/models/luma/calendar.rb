@@ -18,6 +18,19 @@ module Luma
   # Nothing here raises. A meetup homepage must not 500 because a third party
   # is having a bad afternoon.
   class Calendar
+    # Luma answered, but not with a calendar.
+    class FeedUnavailable < StandardError; end
+
+    # Things that go wrong when you talk to someone else's server. These are
+    # expected, and they are what the fallback chain exists for. Anything else
+    # is a bug in this file and should not be quietly swallowed in development
+    # — see the rescue in .refresh.
+    NETWORK_ERRORS = [
+      Timeout::Error, SocketError, SystemCallError, IOError,
+      OpenSSL::SSL::SSLError, Net::HTTPBadResponse, Net::ProtocolError,
+      FeedUnavailable
+    ].freeze
+
     FEED_URL = "https://api.lu.ma/ics/get?entity=calendar&id=cal-dlH2sPWE7XDrZUW".freeze
 
     FRESH_KEY = "luma:calendar:fresh".freeze
@@ -59,9 +72,15 @@ module Luma
         store.write(FRESH_KEY, payload, expires_in: FRESH_TTL)
         store.write(LAST_GOOD_KEY, payload, expires_in: LAST_GOOD_TTL)
         payload
+      rescue *NETWORK_ERRORS => error
+        fall_back(error)
       rescue StandardError => error
-        Rails.logger.warn("[Luma] refresh failed: #{error.class}: #{error.message}")
-        store.read(LAST_GOOD_KEY)
+        # Not an outage — a bug in this file, a missing gem, a feed that
+        # changed shape. In development and test we want to see it immediately;
+        # in production, keeping the site up matters more than being loud.
+        raise unless Rails.env.production?
+
+        fall_back(error)
       end
 
       def download
@@ -71,12 +90,17 @@ module Luma
           use_ssl: true, open_timeout: OPEN_TIMEOUT, read_timeout: READ_TIMEOUT
         ) { |http| http.get(uri.request_uri) }
 
-        raise "unexpected response #{response.code}" unless response.is_a?(Net::HTTPSuccess)
+        raise FeedUnavailable, "unexpected response #{response.code}" unless response.is_a?(Net::HTTPSuccess)
 
         response.body
       end
 
       private
+
+      def fall_back(error)
+        Rails.logger.warn("[Luma] refresh failed: #{error.class}: #{error.message}")
+        store.read(LAST_GOOD_KEY)
+      end
 
       def parse(body)
         calendars = Icalendar::Calendar.parse(body)
@@ -126,12 +150,16 @@ module Luma
       end
 
       # Rails.cache is a null store in development unless caching is toggled
-      # on, which would mean hitting Luma on every single page render. Fall
-      # back to a process-local store so local work stays fast and polite.
+      # on, which would mean hitting Luma on every single page render.
+      #
+      # The fallback is a file store rather than a memory store so that it is
+      # shared between processes: `bin/rails runner 'Luma::Calendar.refresh'`
+      # has to affect the server you already have running, or the console lies
+      # to you about what the site is showing.
       def store
         return Rails.cache unless Rails.cache.is_a?(ActiveSupport::Cache::NullStore)
 
-        @store ||= ActiveSupport::Cache::MemoryStore.new
+        @store ||= ActiveSupport::Cache::FileStore.new(Rails.root.join("tmp/cache/luma"))
       end
     end
   end

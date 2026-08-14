@@ -114,6 +114,21 @@ RSpec.describe Luma::Calendar do
       expect(described_class.events).to be_nil
     end
 
+    # A missing gem or a typo is not an outage, and swallowing it cost us an
+    # afternoon of debugging once already.
+    it "re-raises programming errors outside production" do
+      allow(described_class).to receive(:download).and_raise(NameError, "uninitialized constant Icalendar")
+
+      expect { described_class.events }.to raise_error(NameError)
+    end
+
+    it "still swallows programming errors in production" do
+      allow(Rails).to receive(:env).and_return(ActiveSupport::StringInquirer.new("production"))
+      allow(described_class).to receive(:download).and_raise(NameError, "uninitialized constant Icalendar")
+
+      expect(described_class.events).to be_nil
+    end
+
     it "returns nil rather than raising on unparseable junk" do
       allow(described_class).to receive(:download).and_return("this is not an ics file")
 

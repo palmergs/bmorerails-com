@@ -5,6 +5,13 @@ and Rails meetup.
 
 Rails 8.1 · Ruby 4.0 · Tailwind CSS 4 · Hotwire · deployed with Kamal.
 
+> **An experiment from "Bring Your Own Tokens"** (August 13, 2026). This site was
+> built live at that meetup as an experiment in coding with an LLM agent — the
+> whole thing, from the Rails app skeleton to the Luma iCal integration and this
+> README. Treat it accordingly: it works and it is tested, but nothing here has
+> been through the usual amount of human deliberation. If something looks odd,
+> that's a fair question to raise, not a decision to defend.
+
 ## Running it locally
 
 ```sh
