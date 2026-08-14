@@ -22,7 +22,7 @@ Most changes don't need code. Content lives in plain YAML and one Ruby file:
 | Fallback events, used when Luma is down | `config/content/events.yml` |
 | Sponsors | `config/content/sponsors.yml` |
 | Site name, links, contact addresses | `app/models/site.rb` |
-| Code of conduct text | `app/views/pages/code_of_conduct.html.erb` |
+| Code of conduct page | `app/views/pages/code_of_conduct.html.erb` (see below) |
 | Colors and fonts | `app/assets/tailwind/application.css` |
 
 Sponsor logos go in `app/assets/images/sponsors/`, referenced by filename in
@@ -68,6 +68,19 @@ To see the live feed from a console:
 ```sh
 bin/rails runner 'pp Luma::Calendar.refresh.first'
 ```
+
+## Code of conduct
+
+The anti-harassment policy on `/code-of-conduct` is **not ours to edit here**.
+It is the text the group adopted, and it lives at
+[bmoreonrails/meetup](https://github.com/bmoreonrails/meetup/blob/main/anti_harassment_policy.md).
+The page quotes it verbatim, and a spec pins the rendered page to a recorded
+copy in `spec/fixtures/anti_harassment_policy.md` so it cannot be reworded by
+accident.
+
+To change the policy: change it in that repo first, then update the fixture and
+the page together. Everything else on that page — reporting guidance, expected
+behavior, how the policy is interpreted — is site copy and can be edited freely.
 
 ## Tests
 

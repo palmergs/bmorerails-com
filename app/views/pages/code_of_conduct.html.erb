@@ -1,12 +1,19 @@
 <% content_for :title, "Code of Conduct" %>
-<% content_for :description, "The standards everyone at a Bmore on Rails event agrees to, and how to report a problem." %>
+<% content_for :description, "B'more on Rails' anti-harassment policy, what we expect from each other, and how to report a problem." %>
 
 <%#
-  DRAFT — this text is adapted from widely used community codes of conduct
-  (the Citizen Code of Conduct and the Berlin Code of Conduct lineage) and has
-  not yet been ratified by the organizers. Two things must be settled before
-  launch: the real reporting contacts in app/models/site.rb, and the names of
-  the people who make enforcement decisions.
+  The blockquoted policy below is the group's ADOPTED text, reproduced
+  verbatim from github.com/bmoreonrails/meetup. It is quoted in every Luma
+  event listing, so it is the version people have already agreed to.
+
+  Do not edit it here. If the policy should change, change it in that repo
+  and copy the new text across — otherwise the site and the canonical
+  document drift apart and nobody knows which one governs.
+
+  Everything outside the quote is site guidance: how the policy is put into
+  practice. That is ours to write. Two things still need an organizer:
+  the reporting address in app/models/site.rb, and whether to name the
+  organizers who handle reports.
 %>
 
 <article class="bg-white">
@@ -16,32 +23,130 @@
         Code of Conduct
       </h1>
       <p class="mt-4 text-lg leading-relaxed text-harbor-100">
-        Bmore on Rails is meant to be one of the friendlier rooms you can walk
-        into. This is what we expect from each other, and what happens when
-        someone falls short.
+        B'more on Rails is meant to be one of the friendlier rooms you can walk
+        into. Our anti-harassment policy is what we hold each other to, and it
+        applies to everyone: attendees, speakers, sponsors, and organizers.
       </p>
     </div>
   </header>
 
   <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-    <div class="flex flex-col gap-10">
+    <div class="flex flex-col gap-12">
       <section>
         <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
-          Who this applies to
+          Our anti-harassment policy
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-harbor-700">
+          This is the policy the group has adopted, reproduced in full.
+        </p>
+
+        <blockquote class="mt-5 border-l-4 border-brick-500 bg-marble-50 py-6 pr-6 pl-6 sm:pl-8">
+          <div class="flex flex-col gap-4 text-base leading-relaxed text-harbor-800">
+            <p>
+              B'more on Rails is dedicated to providing a harassment-free meetup
+              experience for everyone, regardless of gender, sexual orientation,
+              disability, physical appearance, body size, race, or religion. We
+              do not tolerate harassment of meetup participants in any form.
+              Sexual language and imagery is not appropriate for any B'more on
+              Rails venue, including talks. Meetup participants violating these
+              rules may be sanctioned or expelled from B'more on Rails at the
+              discretion of the meetup organizers.
+            </p>
+            <p>
+              Harassment includes offensive verbal comments related to gender,
+              sexual orientation, disability, physical appearance, body size,
+              race, religion, sexual images in public spaces, deliberate
+              intimidation, stalking, following, harassing photography or
+              recording, sustained disruption of talks or other events,
+              inappropriate physical contact, and unwelcome sexual attention.
+              Participants asked to stop any harassing behavior are expected to
+              comply immediately.
+            </p>
+            <p>
+              If a participant engages in harassing behavior, the meetup
+              organizers may take any action they deem appropriate, including
+              warning the offender or expulsion from the meetup. If you are
+              being harassed, notice that someone else is being harassed, or
+              have any other concerns, please contact a member of meetup
+              organizers immediately.
+            </p>
+            <p>
+              Meetup organizers will be happy to help participants contact venue
+              security or local law enforcement, provide escorts, or otherwise
+              assist those experiencing harassment to feel safe for the duration
+              of the meetup. We value your attendance.
+            </p>
+          </div>
+        </blockquote>
+
+        <p class="mt-4 text-sm leading-relaxed text-harbor-600">
+          Adapted from the
+          <%= link_to "Geek Feminism conference anti-harassment policy", Site::POLICY_SOURCE_URL,
+                target: "_blank", rel: "noopener",
+                class: "rounded-sm underline decoration-harbor-300 underline-offset-4 transition hover:text-harbor-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-harbor-500" %>.
+          The canonical copy lives in
+          <%= link_to "our meetup repository", Site::POLICY_URL,
+                target: "_blank", rel: "noopener",
+                class: "rounded-sm underline decoration-harbor-300 underline-offset-4 transition hover:text-harbor-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-harbor-500" %>;
+          if the two ever disagree, that one governs.
+        </p>
+      </section>
+
+      <section class="rounded-xl border-2 border-brick-200 bg-brick-50 p-6 sm:p-8">
+        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
+          Reporting a problem
         </h2>
         <p class="mt-3 text-base leading-relaxed text-harbor-800">
-          Everyone at a Bmore on Rails event: attendees, speakers, sponsors,
-          organizers, and volunteers. It covers our in-person meetups, our
-          online spaces, and any venue or after-event gathering where we are
-          together as this group.
+          Tell an organizer. At an event, organizers introduce themselves at the
+          start of the night and are the people to find — and as the policy
+          says, they will help you contact venue security or law enforcement,
+          walk you to your car, or do whatever else you need to feel safe. You
+          can also write to us:
+        </p>
+        <p class="mt-4">
+          <%= link_to Site::CONDUCT_EMAIL, "mailto:#{Site::CONDUCT_EMAIL}",
+                class: "rounded-sm font-display text-lg font-semibold break-all text-brick-700 underline decoration-brick-300 underline-offset-4 transition hover:text-brick-900 hover:decoration-brick-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brick-500 sm:text-xl" %>
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-harbor-800">
+          You don't need to be certain, and you don't need to have been the
+          person it happened to. "This felt off and I wanted someone to know" is
+          a complete report.
+        </p>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          Reports are handled confidentially. We will not share your name with
+          the person you're reporting without your agreement, and we will not
+          ask you to repeat the story to a room full of people. You are welcome
+          to bring someone with you when you talk to us.
         </p>
       </section>
 
       <section>
         <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
-          What we expect
+          How we read this policy
         </h2>
-        <ul class="mt-3 flex flex-col gap-3">
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          The policy lists the characteristics it protects. We read that list as
+          a floor, not a ceiling. Harassment on the basis of gender identity or
+          expression, neurotype, age, national origin, or how long someone has
+          been writing code is harassment, and it gets the same response.
+        </p>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          A few specifics that come up often enough to name: deliberately
+          misgendering someone or using a name they no longer go by counts.
+          Publishing someone's private information without their permission
+          counts. So does retaliating against a person for making a report.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
+          What we expect from each other
+        </h2>
+        <p class="mt-3 text-base leading-relaxed text-harbor-800">
+          Not harassing people is the floor. The room we're actually trying to
+          build looks like this:
+        </p>
+        <ul class="mt-4 flex flex-col gap-3">
           <% [
                ["Be welcoming.", "Assume the person asking a basic question belongs here, because they do. Most of us were that person recently."],
                ["Be considerate.", "People come with different backgrounds, experience levels, jobs, and reasons for being in the room. Talk to them accordingly."],
@@ -62,89 +167,28 @@
 
       <section>
         <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
-          What is not acceptable
+          Where this applies, and what happens next
         </h2>
         <p class="mt-3 text-base leading-relaxed text-harbor-800">
-          The following behavior is unacceptable at any Bmore on Rails event or
-          in any of our spaces:
-        </p>
-        <ul class="mt-3 flex flex-col gap-2.5">
-          <% [
-               "Harassment, intimidation, or discrimination based on gender, gender identity or expression, sexual orientation, disability, neurotype, physical appearance, body size, race, ethnicity, national origin, age, religion, or experience level.",
-               "Unwelcome sexual attention, sexual imagery, or sexual language in talks, slides, or conversation.",
-               "Deliberate misgendering or use of a name someone no longer goes by.",
-               "Threats or incitement of violence, and encouraging any of the above.",
-               "Stalking, following, or unwanted photography and recording.",
-               "Sustained disruption of talks, discussions, or other events.",
-               "Publishing someone's private information without their explicit permission.",
-               "Retaliation against anyone who reports a violation of this code."
-             ].each do |item| %>
-            <li class="flex gap-3">
-              <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brick-500" aria-hidden="true"></span>
-              <p class="text-base leading-relaxed text-harbor-800"><%= item %></p>
-            </li>
-          <% end %>
-        </ul>
-      </section>
-
-      <section class="rounded-xl border-2 border-brick-200 bg-brick-50 p-6 sm:p-8">
-        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
-          Reporting a problem
-        </h2>
-        <p class="mt-3 text-base leading-relaxed text-harbor-800">
-          If you experience or witness something that breaks this code — or
-          anything else that makes you uncomfortable — tell an organizer. At an
-          event, organizers will introduce themselves at the start of the night
-          and are the people to find. You can also write to us:
-        </p>
-        <p class="mt-4">
-          <%= link_to Site::CONDUCT_EMAIL, "mailto:#{Site::CONDUCT_EMAIL}",
-                class: "rounded-sm font-display text-lg font-semibold break-all text-brick-700 underline decoration-brick-300 underline-offset-4 transition hover:text-brick-900 hover:decoration-brick-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brick-500 sm:text-xl" %>
-        </p>
-        <p class="mt-4 text-base leading-relaxed text-harbor-800">
-          Reports are handled confidentially. We will not share your name with
-          the person you're reporting without your agreement, and we will not
-          ask you to repeat the story to a room full of people. You are welcome
-          to bring someone with you when you talk to us.
+          This covers our meetups, our online spaces, and any venue or
+          after-event gathering where we are together as this group.
         </p>
         <p class="mt-3 text-base leading-relaxed text-harbor-800">
-          If you need help contacting venue security or local authorities, or a
-          safe way to get home, ask an organizer and we will arrange it.
-        </p>
-      </section>
-
-      <section>
-        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
-          What happens next
-        </h2>
-        <p class="mt-3 text-base leading-relaxed text-harbor-800">
-          Organizers will decide on a response based on what happened. Depending
-          on severity, that may be a private conversation, a warning, being asked
-          to leave an event, or being barred from future events. Organizers may
-          act immediately to stop ongoing harm and sort out the details after.
+          Consequences are at the organizers' discretion, as the policy says.
+          Depending on what happened that may be a private conversation, a
+          warning, being asked to leave an event, or being barred from future
+          ones. Organizers may act immediately to stop ongoing harm and sort out
+          the details afterward.
         </p>
         <p class="mt-3 text-base leading-relaxed text-harbor-800">
-          Organizers are held to this code too. A report about an organizer goes
-          to the other organizers, and that person takes no part in deciding it.
-        </p>
-      </section>
-
-      <section>
-        <h2 class="font-display text-2xl font-bold text-harbor-900 sm:text-3xl">
-          A note on scope
-        </h2>
-        <p class="mt-3 text-base leading-relaxed text-harbor-800">
-          We're a volunteer meetup, not a court. We can control who is welcome in
-          our room and our spaces, and we will use that. We can't adjudicate
-          things that happen entirely outside the group, though we will take
-          seriously any credible concern about someone's safety at our events.
+          Organizers are held to this policy too. A report about an organizer
+          goes to the other organizers, and that person takes no part in
+          deciding it.
         </p>
       </section>
 
       <footer class="border-t border-marble-200 pt-6">
         <p class="text-sm leading-relaxed text-harbor-600">
-          Adapted from the Citizen Code of Conduct and the Berlin Code of
-          Conduct, both of which have made community spaces better for years.
           Suggestions and corrections are welcome —
           <%= link_to "open an issue", Site::GITHUB_URL, target: "_blank", rel: "noopener",
                 class: "rounded-sm underline decoration-harbor-300 underline-offset-4 transition hover:text-harbor-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-harbor-500" %>.

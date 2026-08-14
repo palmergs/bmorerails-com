@@ -15,7 +15,14 @@ module Site
   GITHUB_URL = "https://github.com/bmoreonrails"
   CONTACT_EMAIL = "hello@bmoreonrails.com"
 
+  # The group's adopted anti-harassment policy. This is the canonical text —
+  # the code of conduct page quotes it verbatim rather than paraphrasing it.
+  POLICY_URL = "https://github.com/bmoreonrails/meetup/blob/main/anti_harassment_policy.md"
+  POLICY_SOURCE_URL = "https://geekfeminism.fandom.com/wiki/Conference_anti-harassment/Policy"
+
   # Where the code of conduct sends people who need to report something.
-  # TODO: replace with the real reporting contact before launch.
+  # TODO: replace with the real reporting contact before launch. The adopted
+  # policy says "contact a member of meetup organizers" and names no address,
+  # so this one is invented and needs an organizer to claim it.
   CONDUCT_EMAIL = "conduct@bmoreonrails.com"
 end

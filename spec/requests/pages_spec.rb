@@ -35,12 +35,49 @@ RSpec.describe "Pages", type: :request do
   end
 
   describe "GET /code-of-conduct" do
-    it "renders the policy and a reporting contact" do
+    it "renders and offers a way to report" do
       get code_of_conduct_path
 
       expect(response).to have_http_status(:ok)
       expect(response.body).to include("Code of Conduct")
       expect(response.body).to include("mailto:#{Site::CONDUCT_EMAIL}")
     end
+
+    it "points at the canonical policy" do
+      get code_of_conduct_path
+
+      expect(response.body).to include(Site::POLICY_URL)
+    end
+
+    # The anti-harassment policy is a document the group adopted, not copy we
+    # are free to improve. This pins the rendered page to the canonical text so
+    # a well-meaning edit can't quietly reword it. If the policy genuinely
+    # changes, update it in the meetup repo first, then refresh this fixture.
+    it "reproduces the adopted anti-harassment policy verbatim" do
+      get code_of_conduct_path
+
+      rendered = squish(strip_tags(response.body))
+
+      expect(adopted_policy_paragraphs.size).to eq(4)
+      adopted_policy_paragraphs.each do |paragraph|
+        expect(rendered).to include(squish(paragraph))
+      end
+    end
+  end
+
+  def adopted_policy_paragraphs
+    Rails.root.join("spec/fixtures/anti_harassment_policy.md")
+      .read
+      .split("\n\n")
+      .map(&:strip)
+      .reject { |line| line.blank? || line.start_with?("#", "Adapted from") }
+  end
+
+  def strip_tags(html)
+    ActionController::Base.helpers.strip_tags(html)
+  end
+
+  def squish(text)
+    CGI.unescapeHTML(text).gsub(/\s+/, " ").strip
   end
 end
