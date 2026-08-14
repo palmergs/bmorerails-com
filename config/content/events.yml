@@ -1,39 +1,97 @@
-# ⚠️  PLACEHOLDER DATA — replace before launch.
+# REAL EVENT DATA, captured from the Luma calendar on 2026-08-13.
 #
-# These entries exist so the events section can be designed and reviewed while
-# the Luma integration is deferred. See app/models/event.rb for the seam where
-# https://luma.com/cja7x708 will eventually plug in.
+# Source: https://luma.com/bmore-on-rails  (calendar id cal-dlH2sPWE7XDrZUW)
+# Feed:   https://api.lu.ma/ics/get?entity=calendar&id=cal-dlH2sPWE7XDrZUW
+#
+# Once Event.all reads the iCal feed directly, this file becomes the fallback
+# used when Luma is unreachable — so it is worth keeping roughly current, but
+# it stops being the thing anyone edits week to week.
+#
+# The cadence is the second Thursday of the month, 7–9pm, at the same address.
+# ⚠️  The venue name below ("Miller's Court") was inferred from the street
+# address and needs a human to confirm it — Luma's feed carries only the
+# address, not a venue name. The neighborhood comes from Luma's own data.
 #
 # Fields: title (required), starts_at (required), ends_at, venue,
 #         neighborhood, summary, url
 # Times are Baltimore local (America/New_York).
 
-- title: "Rails 8 in Production: What We Learned"
-  starts_at: "2026-09-09 18:30"
-  ends_at: "2026-09-09 20:30"
-  venue: "Betamore"
-  neighborhood: "Federal Hill"
-  summary: >
-    A talk on running Solid Queue and Kamal for a year, followed by open
-    discussion. Pizza at 6:30, talk at 7:00.
-  url: "https://luma.com/cja7x708"
+- title: "We're Back!"
+  starts_at: "2025-10-09 19:00"
+  ends_at: "2025-10-09 21:00"
+  url: "https://luma.com/qxa34ig3"
 
-- title: "Hack Night + Newcomer Table"
-  starts_at: "2026-10-14 18:30"
-  ends_at: "2026-10-14 21:00"
-  venue: "Impact Hub Baltimore"
-  neighborhood: "Station North"
-  summary: >
-    Bring whatever you're working on. We always staff a table for people who
-    are brand new to Ruby — no experience required, laptops optional.
-  url: "https://luma.com/cja7x708"
+- title: "Bring your computers, we're going pairing!"
+  starts_at: "2025-11-13 19:00"
+  ends_at: "2025-11-13 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+  url: "https://luma.com/yh4b1tqi"
 
-- title: "Lightning Talks: Gems We Love"
-  starts_at: "2026-11-11 18:30"
-  ends_at: "2026-11-11 20:30"
-  venue: "Spark Baltimore"
-  neighborhood: "Harbor East"
+- title: "B'more on Rails Presents: Your Talks!"
+  starts_at: "2025-12-11 19:00"
+  ends_at: "2025-12-11 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+  url: "https://luma.com/h5b3rmif"
+
+- title: "New Year's Brainstorming"
+  starts_at: "2026-01-08 19:00"
+  ends_at: "2026-01-08 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+  url: "https://luma.com/sra2ye7s"
+
+- title: "Open Hack Night"
+  starts_at: "2026-02-12 19:00"
+  ends_at: "2026-02-12 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+  url: "https://luma.com/wpbvozx2"
+
+- title: "B'more on Rails Presents: Your Talks!"
+  starts_at: "2026-03-12 19:00"
+  ends_at: "2026-03-12 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+  url: "https://luma.com/yyrqgocr"
+
+- title: "B'more on Rails Hangout"
+  starts_at: "2026-04-09 19:00"
+  ends_at: "2026-04-09 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+  url: "https://luma.com/i6hu2grb"
+
+- title: "B'more on Rails Goes Golfing 🏌️"
+  starts_at: "2026-05-14 19:00"
+  ends_at: "2026-05-14 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+  url: "https://luma.com/cbhwa7rj"
+
+- title: "B'more on Rails Presents: Your Talks!"
+  starts_at: "2026-06-11 19:00"
+  ends_at: "2026-06-11 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+  url: "https://luma.com/ulgefenu"
+
+- title: "B'more on Rails Summer Hangout"
+  starts_at: "2026-07-09 19:00"
+  ends_at: "2026-07-09 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
+  url: "https://luma.com/up4d0qh6"
+
+- title: "Bring Your Own Tokens Hack Night"
+  starts_at: "2026-08-13 19:00"
+  ends_at: "2026-08-13 21:00"
+  venue: "Miller's Court"
+  neighborhood: "Charles Village"
   summary: >
-    Five minutes, one gem, no slides required. Sign up on the night — first
-    time speakers get first pick.
+    A hack night unlike any other: we'll work in pairs on the same problem,
+    but all the work will be AI-driven. The goal isn't a finished thing by the
+    end of the night — it's to share and learn how to get the most out of AI
+    coding tools. Bring your own tokens.
   url: "https://luma.com/cja7x708"

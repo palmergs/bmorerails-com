@@ -8,7 +8,10 @@ module Site
                 "Rails developers in Baltimore. Talks, hack nights, and good " \
                 "company — beginners genuinely welcome."
 
-  LUMA_URL = "https://luma.com/cja7x708"
+  # The calendar, not an individual event. Luma's short codes like /cja7x708
+  # are single events; the calendar lives at its slug. Its API id, needed for
+  # the iCal feed, is cal-dlH2sPWE7XDrZUW.
+  LUMA_URL = "https://luma.com/bmore-on-rails"
   GITHUB_URL = "https://github.com/bmoreonrails"
   CONTACT_EMAIL = "hello@bmoreonrails.com"
 

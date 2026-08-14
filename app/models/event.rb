@@ -2,8 +2,13 @@
 #
 # LUMA SEAM ------------------------------------------------------------------
 # Events currently come from config/content/events.yml, which someone edits by
-# hand. When we wire up Luma (https://luma.com/cja7x708), replace the body of
-# .all with a call to a source object and keep this public interface intact:
+# hand. The plan is to read them from Luma's iCal feed, which is public,
+# unauthenticated, and officially supported:
+#
+#   https://api.lu.ma/ics/get?entity=calendar&id=cal-dlH2sPWE7XDrZUW
+#
+# Replace the body of .all with a call to a source object and keep this public
+# interface intact:
 #
 #   def self.all
 #     Luma::Calendar.fetch   # cached, with a YAML fallback when Luma is down
@@ -13,6 +18,14 @@
 # Whatever we build must degrade to the YAML file: an events section that
 # renders a spinner forever because Luma is unreachable is worse than one that
 # renders slightly stale truth.
+#
+# Three things the feed will need handling for:
+#   * DTSTART is UTC and shifts with DST — parse UTC, convert to the app zone,
+#     and never truncate the UTC date or events land on the wrong day.
+#   * SUMMARY carries a trailing " | B'more on Rails" that is redundant here.
+#   * LOCATION is a bare street address (sometimes a URL, when nobody set one)
+#     and DESCRIPTION is templated boilerplate — so venue, neighborhood, and
+#     real prose still come from a small hand-maintained overlay.
 # ----------------------------------------------------------------------------
 class Event
   CONTENT_PATH = Rails.root.join("config/content/events.yml")

@@ -5,7 +5,7 @@ The old version of the website is available in the repo ( https://github.com/bmo
 Here are our constraints:
 * Tailwindcss
 * Hero section
-* Events section with Luma integration to display events ( https://luma.com/cja7x708 )
+* Events section with Luma integration to display events ( https://luma.com/bmore-on-rails — calendar id `cal-dlH2sPWE7XDrZUW`; note the originally-noted `/cja7x708` is a single event, not the calendar )
 * Sponsor section
 * **mobile first**!!!
 * Easy to deploy (kamal?) and maintain
